@@ -29,7 +29,7 @@ import { Input } from "~/components/ui/input"
 import { Label } from "~/components/ui/label"
 import { Spinner } from "~/components/ui/spinner"
 import { deleteUserPlugin } from "~/lib/auth/delete-user-plugin"
-import { cn } from "~/lib/utils"
+import { cn } from "@/lib/utils"
 
 export type DeleteAccountProps = {
   className?: string

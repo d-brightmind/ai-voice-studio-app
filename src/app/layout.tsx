@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { Geist, Inter } from "next/font/google"
 import type { ReactNode } from "react"
 
-import "@/styles/app.css"
+import "@/styles/globals.css"
 
 import { ThemeProvider } from "next-themes"
 import { Providers } from "@/components/providers"
