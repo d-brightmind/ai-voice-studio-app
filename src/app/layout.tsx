@@ -5,8 +5,7 @@ import type { ReactNode } from "react"
 import "@/styles/app.css"
 
 import { ThemeProvider } from "next-themes"
-import { Header } from "@/components/header"
-import { Providers } from "../components/ui/providers"
+import { Providers } from "@/components/providers"
 import { cn } from "@/lib/utils"
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'})
@@ -35,7 +34,6 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Providers>
-            <Header />
 
             {children}
           </Providers>
