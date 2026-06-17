@@ -5,23 +5,23 @@ import { Eye, EyeOff } from "lucide-react"
 import { type SyntheticEvent, useEffect, useState } from "react"
 import { toast } from "sonner"
 
-import { Button } from "~/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import {
   Field,
   FieldDescription,
   FieldError,
   FieldGroup
-} from "~/components/ui/field"
+} from "@/components/ui/field"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput
-} from "~/components/ui/input-group"
-import { Label } from "~/components/ui/label"
-import { Spinner } from "~/components/ui/spinner"
-import { cn } from "~/lib/utils"
+} from "@/components/ui/input-group"
+import { Label } from "@/components/ui/label"
+import { Spinner } from "@/components/ui/spinner"
+import { cn } from "@/lib/utils"
 
 export type ResetPasswordProps = {
   className?: string
