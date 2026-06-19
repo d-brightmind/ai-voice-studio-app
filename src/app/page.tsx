@@ -34,7 +34,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Providers>
-
+          <h1>AI Voice Studio</h1>
             {children}
           </Providers>
         </ThemeProvider>

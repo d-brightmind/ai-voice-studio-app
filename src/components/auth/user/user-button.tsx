@@ -132,16 +132,22 @@ export function UserButton({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
-        className={cn(size === "icon" && "rounded-full")}
+        render={
+          size === "icon" ? (
+            <button type="button" className={cn("rounded-full", className)} />
+          ) : (
+            <Button
+              variant={variant}
+              className={cn("py-2.5 h-auto font-normal", className)}
+              size="lg"
+            />
+          )
+        }
       >
         {size === "icon" ? (
-          <UserAvatar className={className} />
+          <UserAvatar />
         ) : (
-          <Button
-            variant={variant}
-            className={cn("py-2.5 h-auto font-normal", className)}
-            size="lg"
-          >
+          <>
             {session || sessionPending || settingActiveSession ? (
               <UserView isPending={!!settingActiveSession} />
             ) : (
@@ -155,7 +161,7 @@ export function UserButton({
             )}
 
             <ChevronsUpDown className="ml-auto size-4" />
-          </Button>
+          </>
         )}
       </DropdownMenuTrigger>
 
@@ -163,7 +169,6 @@ export function UserButton({
         className="w-[--radix-dropdown-menu-trigger-width] min-w-40 md:min-w-56 max-w-[48svw]"
         sideOffset={sideOffset}
         align={align}
-        onCloseAutoFocus={(e) => e.preventDefault()}
       >
         {session && (
           <>
