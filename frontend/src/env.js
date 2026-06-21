@@ -16,9 +16,9 @@ export const env = createEnv({
     AWS_SECRET_ACCESS_KEY: z.string().optional(),
     AWS_REGION: z.string().optional(),
     AWS_S3_BUCKET_NAME: z.string().optional(),
-    MODAL_API_KEY: z.string().optional(),
-    MODAL_SECRET_KEY: z.string().optional(),
-    MODAL_API_URL: z.string().optional(),
+    MODAL_API_KEY: z.string(),
+    MODAL_SECRET_KEY: z.string(),
+    MODAL_API_URL: z.string(),
     NODE_ENV: z
       .enum(["development", "test", "production"])
       .default("development"),
