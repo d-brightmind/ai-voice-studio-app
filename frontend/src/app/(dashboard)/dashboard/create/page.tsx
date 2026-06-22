@@ -49,7 +49,7 @@ const LANGUAGES: Language[] = [
 ];
 
 const VOICE_FILES: VoiceFile[] = [
-  { name: "Michael", s3_key: "samples/voices/Michael.wav" },
+  { name: "Michael", s3_key: "samples/voices/steve-jobs-it-s-about-love-and-loss_D_major.wav" },
 ];
 
 export default function CreatePage() {
@@ -60,7 +60,7 @@ export default function CreatePage() {
   const [text, setText] = useState("");
   const [selectedLanguage, setSelectedLanguage] = useState("en");
   const [selectedVoice, setSelectedVoice] = useState(
-    VOICE_FILES[0]?.s3_key ?? "samples/voices/Michael.wav",
+    VOICE_FILES[0]?.s3_key ?? "samples/voices/steve-jobs-it-s-about-love-and-loss_D_major.wav",
   );
 
   const [exaggeration, setExaggeration] = useState(0.5);
