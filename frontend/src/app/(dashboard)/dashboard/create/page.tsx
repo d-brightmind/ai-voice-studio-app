@@ -240,7 +240,7 @@ export default function CreatePage() {
             </h1>
             <p className="text-muted-foreground mx-auto max-w-xl text-xs">
               Generate natural-sounding speech in 23 languages with voice
-              cloning
+              cloning.
             </p>
           </div>
         </div>
