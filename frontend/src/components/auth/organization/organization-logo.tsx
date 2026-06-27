@@ -44,7 +44,7 @@ export function OrganizationLogo({
     return (
       <Skeleton
         className={cn("rounded-full", sizeClasses[size], className)}
-        style={style}
+        style={typeof style === "function" ? undefined : style}
       />
     )
   }
@@ -55,7 +55,7 @@ export function OrganizationLogo({
   return (
     <Avatar
       className={cn("rounded-full", sizeClasses[size], className)}
-      style={style}
+      style={typeof style === "function" ? undefined : style}
       {...props}
     >
       <AvatarImage
@@ -65,7 +65,7 @@ export function OrganizationLogo({
 
       <AvatarFallback
         className={cn("text-muted-foreground!", fallbackTextClasses[size])}
-        delayMs={normalizedLogo ? 600 : undefined}
+        delay={normalizedLogo ? 600 : undefined}
       >
         {fallback || initials || <Briefcase className="size-4" />}
       </AvatarFallback>
