@@ -23,7 +23,7 @@ interface GenerateSpeechResult {
 }
 
 const S3_BUCKET_URL =
-  "https://ai-voice-studio-sahand.s3.ap-southeast-2.amazonaws.com";
+  "https://ai-voice-studio-ridwan.s3.eu-north-1.amazonaws.com";
 
 export async function generateSpeech(
   data: GenerateSpeechData,
@@ -78,9 +78,15 @@ export async function generateSpeech(
       return { success: false, error: "Failed to generate speech" };
     }
 
-    const result = (await response.json()) as { s3_Key: string };
+    const rawText = await response.text();
+    const result = JSON.parse(rawText) as { s3_key: string };
 
-    const audioUrl = `${S3_BUCKET_URL}/${result.s3_Key}`;
+    if (!result.s3_key) {
+      console.error("Modal API response missing s3_key:", result);
+      return { success: false, error: "Failed to get audio key from speech service" };
+    }
+
+    const audioUrl = `${S3_BUCKET_URL}/${result.s3_key}`;
 
     await db.user.update({
       where: { id: session.user.id },
@@ -91,7 +97,7 @@ export async function generateSpeech(
       data: {
         text: data.text,
         audioUrl,
-        s3Key: result.s3_Key,
+        s3Key: result.s3_key,
         language: data.language,
         voiceS3Key: data.voice_S3_key,
         exaggeration: data.exaggeration,
@@ -102,7 +108,7 @@ export async function generateSpeech(
 
     return {
       success: true,
-      s3_key: result.s3_Key,
+      s3_key: result.s3_key,
       audioUrl,
       projectId: audioProject.id,
     };
