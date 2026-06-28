@@ -30,6 +30,7 @@ export const env = createEnv({
    * `NEXT_PUBLIC_`.
    */
   client: {
+    NEXT_PUBLIC_API_URL: z.string().url(),
     // NEXT_PUBLIC_CLIENTVAR: z.string(),
   },
 
@@ -51,6 +52,7 @@ export const env = createEnv({
     MODAL_API_KEY: process.env.MODAL_API_KEY,
     MODAL_SECRET_KEY: process.env.MODAL_SECRET_KEY,
     MODAL_API_URL: process.env.MODAL_API_URL,
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**
